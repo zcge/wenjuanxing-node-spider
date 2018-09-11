@@ -1,0 +1,23 @@
+{
+  "name": "spider-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "crypto": "^1.0.1",
+    "form-data": "^2.3.2",
+    "https-proxy-agent": "^2.2.1",
+    "iconv-lite": "^0.4.24",
+    "moment": "^2.22.2",
+    "node-fetch": "^2.2.0",
+    "qs": "^6.5.2",
+    "string": "^3.3.3",
+    "zlib": "^1.0.5"
+  }
+}
