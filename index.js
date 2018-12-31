@@ -31,12 +31,13 @@ let task = async (ip)=>{
         let obj = await getParams.run(proxy_url)
         
         let time = randomNum(5000,30000)
+        console.log(obj)
         console.log('模拟填写问卷等待时间--',time/1000 + 's'); 
         await sleep(time)
         console.log('开始发送')
-        await send.run(obj,proxy_url)
+        await send.run(obj,proxy_url,30)
         return null
-    } catch (error) {ç
+    } catch (error) {
         console.log('发生未知的错误',error)
     }
     

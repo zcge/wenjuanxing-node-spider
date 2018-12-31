@@ -1,10 +1,11 @@
 const proxy = require('./proxy')
 const S = require('string')
 const cheerio = require("cheerio");
+const config = require('./config')
 module.exports = {
     async run (proxy_url) {
        console.log('调用接口获取参数')
-       let res =  await proxy.fetch('https://www.wjx.cn/m/24816781.aspx',{
+       let res =  await proxy.fetch('https://www.wjx.cn/m/'+config.curid+'.aspx',{
            headers:{
            }
        },proxy_url).catch(e=>{return null})
@@ -14,15 +15,17 @@ module.exports = {
            let html = await res.text();
            var $ = S(html)
            var $$ = cheerio.load(html);
+           var jqnonce = $.between('var jqnonce="','";').s;
            let starttime = $$('#starttime').val()
            let rn = $.between('var rndnum="','";').s;
            return {
+                jqnonce,
                cookie,
                starttime,
                rn
            }
        }else{
-           console.log('报错了',cookie)
+           console.log('报错了',res)
            return null
        }
     }
